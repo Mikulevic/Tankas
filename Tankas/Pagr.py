@@ -1,6 +1,4 @@
-
 import random
-
 class Tankas():
 
     def __init__(self, x_kord, y_kords, kriptys="i siaure", suviai=0, suviu_siaure=0, suviu_vakarai=0, suviu_pietus=0, suviu_rytai=0, degalai=100):
@@ -39,23 +37,28 @@ class Tankas():
 
         if self.kriptys == "i siaure" and self.x_kords == target.h_kord and self.y_kords < target.v_kord:
             print("Pataikei")
-            tankas.degalai += 30
+            tankas.degalai += 10
             self.suviu_siaure += 1
+            return True
+
 
         elif self.kriptys == "i pietus" and self.x_kords == target.h_kord and self.y_kords > target.v_kord:
             print("Pataikei")
-            tankas.degalai += 30
+            tankas.degalai += 10
             self.suviu_rytai += 1
+            return True
 
         elif self.kriptys == "i vakarus" and self.y_kords == target.v_kord and self.x_kords > target.h_kord:
             print("Pataikei")
-            tankas.degalai += 30
+            tankas.degalai += 10
             self.suviu_vakarai += 1
+            return True
 
         elif self.kriptys == "i rytus" and self.y_kords == target.v_kord and self.x_kords < target.h_kord:
             print("Pataikei")
-            tankas.degalai += 30
+            tankas.degalai += 10
             self.suviu_rytai += 1
+            return True
 
         else:
             print("Nepataikei")
@@ -72,7 +75,7 @@ Suviu i pietus: {self.suviu_pietus}
 Degalu likutis: {self.degalai}
 """)
 
-class Target:
+class Target():
     def __init__(self):
         self.h_kord = random.randint(0, 10)
         self.v_kord = random.randint(0, 10)
@@ -108,13 +111,11 @@ while True:
         tankas.desinen()
         tankas.degalai -= 10
     if suvis == "y":
-        target = Target()
-        tankas.shoot(target)
+        if tankas.shoot(target) == True:
+            target = Target()
     if suvis == "n":
         pass
     if tankas.degalai == 0:
         print("Degalai pasibaige")
         tankas.info()
         break
-    target.inf()
-    tankas.info()

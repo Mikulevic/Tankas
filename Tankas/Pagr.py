@@ -39,22 +39,22 @@ class Tankas():
 
         if self.kriptys == "i siaure" and self.x_kords == target.h_kord and self.y_kords < target.v_kord:
             print("Pataikei")
-            tankas.degalai += 10
+            tankas.degalai += 30
             self.suviu_siaure += 1
 
         elif self.kriptys == "i pietus" and self.x_kords == target.h_kord and self.y_kords > target.v_kord:
             print("Pataikei")
-            tankas.degalai += 10
+            tankas.degalai += 30
             self.suviu_rytai += 1
 
         elif self.kriptys == "i vakarus" and self.y_kords == target.v_kord and self.x_kords > target.h_kord:
             print("Pataikei")
-            tankas.degalai += 10
+            tankas.degalai += 30
             self.suviu_vakarai += 1
 
         elif self.kriptys == "i rytus" and self.y_kords == target.v_kord and self.x_kords < target.h_kord:
             print("Pataikei")
-            tankas.degalai += 10
+            tankas.degalai += 30
             self.suviu_rytai += 1
 
         else:
